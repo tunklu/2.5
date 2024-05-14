@@ -12,8 +12,9 @@ for i in range(0, card_quantity):
 
 max_ = (max(card_list))
 max_count = card_list.count(max_)
+print('Старый список видеокарт:', card_list)
 
 for i in range(0, max_count):
     card_list.remove(max_)
 
-print(card_list)
+print('Новый список видеокарт',card_list)
