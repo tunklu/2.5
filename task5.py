@@ -17,12 +17,16 @@ while i < container_quantity:
         print('Вес контейнера должен быть меньше 200')
 
 new_container_weight = int(input('Введите вес нового контейнера:'))
+new_container_number = 0
 
-for i in range(0, len(container_list), -1):
-    print(i)
-    if (new_container_weight) <= (container_list[i]):
-        print(i)
+for i in range((len(container_list)-1), 0, -1):
+    if (new_container_weight) < (container_list[len(container_list)-1]):
+        new_container_number = len(container_list)+1
+        break
+    if (new_container_weight) >= (container_list[i]):
+        new_container_number = (i+1)
+        break
+    else:
+        new_container_number = 0
 
-
-print(container_list)
-print('Номер, который получит новый контейнер:', )
+print('Номер, который получит новый контейнер:', new_container_number)
