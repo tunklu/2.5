@@ -19,14 +19,15 @@ while i < container_quantity:
 new_container_weight = int(input('Введите вес нового контейнера:'))
 new_container_number = 0
 
-for i in range((len(container_list)-1), 0, -1):
-    if (new_container_weight) < (container_list[len(container_list)-1]):
-        new_container_number = len(container_list)+1
-        break
-    if (new_container_weight) >= (container_list[i]):
-        new_container_number = (i+1)
-        break
-    else:
-        new_container_number = 0
+if new_container_weight > container_list[0]:
+        new_container_number = 1
+elif new_container_weight <= container_list[-1]:
+        new_container_number = (len(container_list)+1)
+else:
+    for index in range(1, len(container_list)):
+        if new_container_weight <= container_list[(index-1)] and new_container_weight > container_list[index]:
+            new_container_number = (index+1)
+            break
+
 
 print('Номер, который получит новый контейнер:', new_container_number)
